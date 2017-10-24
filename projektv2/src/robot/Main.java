@@ -228,7 +228,7 @@ public class Main extends JFrame{
         //tworzenie korpusu
         Appearance  wygladKorpusu = new Appearance(); 
         
-        loader = new TextureLoader("tekstury/stal.jpg",null);
+        loader = new TextureLoader("tekstury/stal3.jpg",null);
         image = loader.getImage();
 
         Texture2D korpus = new Texture2D(Texture.BASE_LEVEL, Texture.RGBA,
@@ -238,14 +238,14 @@ public class Main extends JFrame{
         korpus.setBoundaryModeS(Texture.WRAP);
         korpus.setBoundaryModeT(Texture.WRAP);
         wygladKorpusu.setTexture(korpus);
-        com.sun.j3d.utils.geometry.Cylinder BoxKorpus = new com.sun.j3d.utils.geometry.Cylinder(0.15f, 2.5f,com.sun.j3d.utils.geometry.Box.GENERATE_NORMALS| com.sun.j3d.utils.geometry.Box.GENERATE_TEXTURE_COORDS, wygladKorpusu);
+        com.sun.j3d.utils.geometry.Cylinder BoxKorpus = new com.sun.j3d.utils.geometry.Cylinder(0.15f, 2f,com.sun.j3d.utils.geometry.Box.GENERATE_NORMALS| com.sun.j3d.utils.geometry.Box.GENERATE_TEXTURE_COORDS, wygladKorpusu);
         BoxKorpus.setCollidable(false);
         
 
         //pozycjonowanie korpusu
       
         p_korpus = new Transform3D();
-        p_korpus.set(new Vector3f(0.0f, 0.75f, 0.0f));
+        p_korpus.set(new Vector3f(0.0f, 0.55f, 0.0f));
         transformacja_k = new TransformGroup(p_korpus);
         transformacja_k.addChild(BoxKorpus);
         transformacja_k.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
@@ -299,7 +299,7 @@ public class Main extends JFrame{
         wys.setBoundaryModeS(Texture.WRAP);
         wys.setBoundaryModeT(Texture.WRAP);
         wygladwys.setTexture(wys);
-        com.sun.j3d.utils.geometry.Cylinder Boxwys = new com.sun.j3d.utils.geometry.Cylinder(0.12f, 2f,com.sun.j3d.utils.geometry.Box.GENERATE_NORMALS| com.sun.j3d.utils.geometry.Box.GENERATE_TEXTURE_COORDS, wygladwys);
+        com.sun.j3d.utils.geometry.Cylinder Boxwys = new com.sun.j3d.utils.geometry.Cylinder(0.12f, 1f,com.sun.j3d.utils.geometry.Box.GENERATE_NORMALS| com.sun.j3d.utils.geometry.Box.GENERATE_TEXTURE_COORDS, wygladwys);
         Boxwys.setCollidable(false);
         
 //        Appearance  wygladwys = new Appearance();
@@ -392,7 +392,7 @@ public class Main extends JFrame{
         
          tmp_rot5 = new Transform3D();       
          tmp_rot5.rotZ(Math.PI/3);
-         tmp_rot5.setTranslation(new Vector3f (-0.1f,0.15f,0.0f));
+         tmp_rot5.setTranslation(new Vector3f (-0.1f,0.15f,1.0f));
          
          p_obiekt = new Transform3D();
          p_obiekt.set(tmp_rot5);
