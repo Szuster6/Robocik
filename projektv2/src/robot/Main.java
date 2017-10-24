@@ -235,11 +235,11 @@ public class Main extends JFrame{
                                         image.getWidth(), image.getHeight());
 
         korpus.setImage(0, image);
-        korpus.setBoundaryModeS(Texture.WRAP);
-        korpus.setBoundaryModeT(Texture.WRAP);
+        korpus.setBoundaryModeS(Texture.CLAMP_TO_EDGE);
+        korpus.setBoundaryModeT(Texture.CLAMP_TO_EDGE);
         wygladKorpusu.setTexture(korpus);
         com.sun.j3d.utils.geometry.Cylinder BoxKorpus = new com.sun.j3d.utils.geometry.Cylinder(0.15f, 2f,com.sun.j3d.utils.geometry.Box.GENERATE_NORMALS| com.sun.j3d.utils.geometry.Box.GENERATE_TEXTURE_COORDS, wygladKorpusu);
-        BoxKorpus.setCollidable(false);
+        BoxKorpus.setCollidable(true);
         
 
         //pozycjonowanie korpusu
@@ -267,6 +267,7 @@ public class Main extends JFrame{
         wygladRamienia.setTexture(ramie);
         com.sun.j3d.utils.geometry.Cylinder BoxRamienia = new com.sun.j3d.utils.geometry.Cylinder(0.14f, 2.0f,com.sun.j3d.utils.geometry.Box.GENERATE_NORMALS| com.sun.j3d.utils.geometry.Box.GENERATE_TEXTURE_COORDS, wygladRamienia);
         BoxRamienia.setCollidable(false);
+       
         
 //        Appearance  wygladRamienia = new Appearance();
 //        wygladRamienia.setColoringAttributes(new ColoringAttributes(0.0f,0.0f,0.0f,ColoringAttributes.NICEST));
@@ -296,10 +297,10 @@ public class Main extends JFrame{
                                         image.getWidth(), image.getHeight());
 
         wys.setImage(0, image);
-        wys.setBoundaryModeS(Texture.WRAP);
-        wys.setBoundaryModeT(Texture.WRAP);
+//        wys.setBoundaryModeS(Texture.CLAMP);
+//        wys.setBoundaryModeT(Texture.CLAMP);
         wygladwys.setTexture(wys);
-        com.sun.j3d.utils.geometry.Cylinder Boxwys = new com.sun.j3d.utils.geometry.Cylinder(0.12f, 1f,com.sun.j3d.utils.geometry.Box.GENERATE_NORMALS| com.sun.j3d.utils.geometry.Box.GENERATE_TEXTURE_COORDS, wygladwys);
+        com.sun.j3d.utils.geometry.Cylinder Boxwys = new com.sun.j3d.utils.geometry.Cylinder(0.12f, 1f,com.sun.j3d.utils.geometry.Box.GENERATE_NORMALS_INWARD   | com.sun.j3d.utils.geometry.Box.GENERATE_TEXTURE_COORDS, wygladwys);
         Boxwys.setCollidable(false);
         
 //        Appearance  wygladwys = new Appearance();
