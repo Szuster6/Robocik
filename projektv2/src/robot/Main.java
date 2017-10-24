@@ -13,7 +13,6 @@ package robot;
     import javax.vecmath.Point3d;
     import com.sun.j3d.utils.image.TextureLoader;
     import java.util.Enumeration;
-import javafx.geometry.Point3D;
 
 
 public class Main extends JFrame{
