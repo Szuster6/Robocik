@@ -277,7 +277,7 @@ public class Main extends JFrame{
 
         Transform3D  tmp_rot2      = new Transform3D();       //ustawienie ramienia w poziomie
         tmp_rot2.rotX(Math.PI/2);
-        tmp_rot2.setTranslation(new Vector3f (0.0f,1.1f,0.0f));
+        tmp_rot2.setTranslation(new Vector3f (0.0f,1.1f,-0.1f));
        
         p_ramie = new Transform3D();
         p_ramie.set(tmp_rot2);
