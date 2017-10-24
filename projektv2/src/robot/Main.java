@@ -228,7 +228,7 @@ public class Main extends JFrame{
         //tworzenie korpusu
         Appearance  wygladKorpusu = new Appearance(); 
         
-        loader = new TextureLoader("tekstury/stal.jpg",null);
+        loader = new TextureLoader("tekstury/stal2.jpg",null);
         image = loader.getImage();
 
         Texture2D korpus = new Texture2D(Texture.BASE_LEVEL, Texture.RGBA,
