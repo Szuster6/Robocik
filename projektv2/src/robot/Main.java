@@ -1,7 +1,6 @@
 package robot;
 
-
-    import javax.swing.*;
+import javax.swing.*;
     import javax.vecmath.*;
     import com.sun.j3d.utils.behaviors.mouse.*;
     import com.sun.j3d.utils.geometry.*;
@@ -13,6 +12,11 @@ package robot;
     import javax.vecmath.Point3d;
     import com.sun.j3d.utils.image.TextureLoader;
     import java.util.Enumeration;
+import java.util.concurrent.TimeUnit;
+import static robot.Kinematyka.kinematykaOdwrotna;
+    
+    import static robot.Kinematyka.kinematykaProsta;
+
 
 public class Main extends JFrame{
     
@@ -52,6 +56,7 @@ public class Main extends JFrame{
     private float v=0;
     private float o=0;
     public int x,y,z,o1,o2,o3;
+    public double xx,yy,zz,oo1,oo2,oo3;
     
   public class zachowanie extends Behavior {
 
@@ -438,7 +443,7 @@ public class Main extends JFrame{
   
     public static void main(String[] args) {
         
-        Menu menu= new Menu();
+        Menu menu = new Menu();
         menu.setVisible(true);
     }
    
@@ -466,60 +471,136 @@ public class Main extends JFrame{
                   }
     
     //nasze xyz
-    public void xyz(int x, int y, int z){
+    public void xyz(int x, int y, int z, int speed) throws InterruptedException{
         System.out.println("xyz: " + x +  " " + y +  " " + z);
-        //TUTAJ WYWOŁANIE KLASY KINEMATYKA A POTEM POSZCZEGOLNYCH KĄTÓW
-        //Kinematyka res_xyz = kinematykaProsta(x,y,z);
-        //r_korpusu(res_xyz.getX());
-        //r_ramienia(res_xyz.getY())
-        //r_wysiegnika(res_xyz.getZ());
-    }
-    //nasze katy
-    public void ooo(int o1, int o2, int o3){
         
-        System.out.println("ooo: " + o1 +  " " + o2 +  " " + o3);
-        //TUTAJ WYWOŁANIE KLASY KINEMATYKA A POTEM POSZCZEGOLNYCH KĄTÓW
-        //Kinematyka res_deg = kinematykaOdwrotna(o1, o2, o3);
-        //r_korpusu(res_deg.getX());
-        //r_ramienia(res_deg.getY())
-        //r_wysiegnika(res_deg.getZ());
-    
+        //Wywowałnie metody kinematykaOdwrotna klasy Kinematyka
+        robot.Kinematyka res_deg = kinematykaOdwrotna(x, y, z);
+        System.out.println(res_deg.getX());
+        System.out.println(res_deg.getY());
+        System.out.println(res_deg.getZ());
+        
+        //r_korpusu( Math.toRadians( Math.abs( res_deg.getX() ) ) );
+        //r_ramienia( Math.toRadians( Math.abs( res_deg.getY() ) ) );
+        //r_wysiegnika( Math.toRadians( Math.abs( res_deg.getZ() ) ) );
+        
+        double o1 = res_deg.getX();
+        double o2 = res_deg.getY();
+        double o3 = res_deg.getZ();
+        
+        double oo1 = Math.toRadians(o1);
+        double j = 0.0;
+        if ( o1 > 0){
+            for(double i = 0.0; i <= oo1; i = i + 0.05 ){
+            j = j + 0.05;
+            TimeUnit.MILLISECONDS.sleep(speed);
+            r_korpusu(0.05);
+            }r_korpusu(Math.abs(oo1 - j));
+        }else if (o1 < 0) {
+            for(double i = 0.0; i >= oo1; i = i - 0.05 ){
+            j = j - 0.05;
+            TimeUnit.MILLISECONDS.sleep(speed);
+            r_korpusu(-0.05);
+            }r_korpusu(-Math.abs(oo1 - j));
+        }
+            
+        double oo2 = Math.toRadians(o2);
+        j = 0.0;
+        if ( o2 > 0){
+            for(double i = 0.0; i <= oo2; i = i + 0.05 ){
+            j = j + 0.05;
+            TimeUnit.MILLISECONDS.sleep(speed);
+            r_ramienia(0.05);
+            }r_ramienia(Math.abs(oo2 - j));
+        }else if (o2 < 0) {
+            for(double i = 0.0; i >= oo2; i = i - 0.05 ){
+            j = j - 0.05;
+            TimeUnit.MILLISECONDS.sleep(speed);
+            r_ramienia(-0.05);
+            }r_ramienia(-Math.abs(oo2 - j));
+        }
+        
+        j = 0.0;
+        double oo3 = Math.toRadians(o3);
+        if ( o3 > 0){
+            for(double i = 0.0; i <= oo3; i = i + 0.05 ){
+            j = j + 0.05;
+            TimeUnit.MILLISECONDS.sleep(speed);
+            r_wysiegnika(0.05);
+            }r_wysiegnika(Math.abs(oo3 - j));
+        }else if (o2 < 0) {
+            for(double i = 0.0; i >= oo3; i = i - 0.05 ){
+            j = j - 0.05;
+            TimeUnit.MILLISECONDS.sleep(speed);
+            r_wysiegnika(-0.05);
+            }r_wysiegnika(-Math.abs(oo3 - j));
+        }
     }
     
+    //nasze katy
+    public void ooo(int o1, int o2, int o3, int speed) throws InterruptedException{
+        System.out.println("podane katy: " + o1 +  " " + o2 +  " " + o3);
+        
+        //Wywowałnie metody kinematykaProsta klasy Kinematyka
+        robot.Kinematyka res_xyz = kinematykaProsta(o1,o2,o3);
+        
+        System.out.println(res_xyz.getX());
+        System.out.println(res_xyz.getY());
+        System.out.println(res_xyz.getZ());
+        
+        System.out.println("podane katy : " + o1 +  " " + o2 +  " " + o3);
+        
+        double oo1 = Math.toRadians(o1);
+        double j = 0.0;
+        if ( o1 > 0){
+            for(double i = 0.0; i <= oo1; i = i + 0.05 ){
+            j = j + 0.05;
+            TimeUnit.MILLISECONDS.sleep(speed);
+            r_korpusu(0.05);
+            }r_korpusu(-Math.abs(oo1 - j));
+        }else if (o1 < 0) {
+            for(double i = 0.0; i >= oo1; i = i - 0.05 ){
+            j = j - 0.05;
+            TimeUnit.MILLISECONDS.sleep(speed);
+            r_korpusu(-0.05);
+            }r_korpusu(Math.abs(oo1 - j));
+        }
+            
+        double oo2 = Math.toRadians(o2);
+        j = 0.0;
+        if ( o2 > 0){
+            for(double i = 0.0; i <= oo2; i = i + 0.05 ){
+            j = j + 0.05;
+            TimeUnit.MILLISECONDS.sleep(speed);
+            r_ramienia(0.05);
+            }r_ramienia(Math.abs(oo2 - j));
+        }else if (o2 < 0) {
+            for(double i = 0.0; i >= oo2; i = i - 0.05 ){
+            j = j - 0.05;
+            TimeUnit.MILLISECONDS.sleep(speed);
+            r_ramienia(-0.05);
+            }r_ramienia(-Math.abs(oo2 - j));
+        }
+        
+        j = 0.0;
+        double oo3 = Math.toRadians(o3);
+        if ( o3 > 0){
+            for(double i = 0.0; i <= oo3; i = i + 0.05 ){
+            j = j + 0.05;
+            TimeUnit.MILLISECONDS.sleep(speed);
+            r_wysiegnika(0.05);
+            }r_wysiegnika(Math.abs(oo3 - j));
+        }else if (o2 < 0) {
+            for(double i = 0.0; i >= oo3; i = i - 0.05 ){
+            j = j - 0.05;
+            TimeUnit.MILLISECONDS.sleep(speed);
+            r_wysiegnika(-0.05);
+            }r_wysiegnika(-Math.abs(oo3 - j));
+        }
     
-    
-    //ruch ramienia góra-dół (przesuniecie go o Wektor)
-//           public void r_ramienia(boolean kierunek){
-//           Transform3D trans3d = new Transform3D();
-//           if((g<1.0) && (kierunek == false)){
-//                trans3d.set(new Vector3f(0.0f,0.0f,0.1f));
-//                r_ramie.trans(trans3d);
-//                g=g+0.1f;
-//           }else{
-//               if((g>-0.6) && (kierunek==true)){
-//                trans3d.set(new Vector3f(0.0f,0.0f,-0.1f));
-//                r_ramie.trans(trans3d);
-//                g=g-0.1f;
-//               }}}
-    
-
-   //wyciąganie wysięgnika   (przesuniecie o Wektor)
-//     public void r_wysiegnika(boolean kierunek){
-//           Transform3D trans3d = new Transform3D();
-//           if((l<0.8) && (kierunek == false)){
-//                trans3d.set(new Vector3f(0.0f,0.1f,0.0f));
-//                r_wysiegnik.trans(trans3d);
-//                l=l+0.1f;
-//           }else{
-//               if((l>0.1) && (kierunek==true)){
-//                trans3d.set(new Vector3f(0.0f,-0.1f,0.0f));
-//                r_wysiegnik.trans(trans3d);
-//                l=l-0.1f;
-//               }
-//           }}
-//ruszanie jedna czescia chwytaka (obrot wzglem osi)
+    }
           
-           public void ch_rot(boolean kierunek){
+        public void ch_rot(boolean kierunek){
            Transform3D tmp_t3d = new Transform3D();
            transformacja_ch.getTransform(tmp_t3d);
            Matrix3f tmp_mz3f_ch_rot =new Matrix3f();
@@ -539,10 +620,8 @@ public class Main extends JFrame{
                }
            }
        }
-  //ruszanie druga czescia chwytaka   (obrot wzgledem osi) 
-                
-            
-           public void ch2_rot(boolean kierunek){
+
+        public void ch2_rot(boolean kierunek){
            Transform3D tmp_t3d = new Transform3D();
            transformacja_ch2.getTransform(tmp_t3d);
            Matrix3f tmp_mx3f_ch_rot =new Matrix3f();
@@ -564,7 +643,8 @@ public class Main extends JFrame{
                }
            }
        }
-      public void reset(){
+        
+        public void reset(){
           
           //powracanie wysiegnika
            Transform3D zero_w = new Transform3D();
@@ -598,21 +678,7 @@ public class Main extends JFrame{
           zero_ch2.invert();
           zero_ch2.mul(p_chwytak2);
           ch2_rot.trans(zero_ch2);
-          
-          
-           
-          
-                        }
-     
-     
-     
-
+            
+        }
+   
 }
-    
-    
-    
-    
-    
-    
-
-
