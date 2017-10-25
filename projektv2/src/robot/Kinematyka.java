@@ -29,7 +29,7 @@ public class Kinematyka extends java.lang.Object{
         this.y = y;
         this.z = z;
     }
-    
+
     public double getX() {
         return x;
     }
@@ -88,7 +88,7 @@ public class Kinematyka extends java.lang.Object{
     public static Kinematyka kinematykaOdwrotna(double x, double y, double z) {
     
    
-    double o1, o2, o3, oo3_o2;
+    double o1, o2, o3;
     double d1, a2, a3, xx;
     
     double ooo2, oo3, oo2;
@@ -123,7 +123,6 @@ public class Kinematyka extends java.lang.Object{
     o2 = Math.toDegrees( Math.asin(ooo2) + Math.atan(oo2));
     o2 = Math.round(o2);
     
-    System.out.println("_________________________");
 //    System.out.println("Kąty: (" + o1 + ", "+o2+", "+ o3 +")");
 
 
