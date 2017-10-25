@@ -51,6 +51,7 @@ public class Main extends JFrame{
     private float l=0;
     private float v=0;
     private float o=0;
+    public int x,y,z,o1,o2,o3;
     
   public class zachowanie extends Behavior {
 
@@ -464,34 +465,25 @@ public class Main extends JFrame{
           
                   }
     
-    //obrót podstawy kąt względem osi
-    public void xyz(int data, int which){
-        if (which == 1){
-            int x = data;
-        }else if(which == 2){
-            int y = data;
-        }else if(which == 3){
-            int z = data;
-        }else{
-            //TUTAJ WYWOŁANIE KLASY KINEMATYKA A POTEM POSZCZEGOLNYCH KĄTÓW
-            //Kinematyka res_xyz = kinematykaProsta(x,y,z);
-            //NP. r_wysiegnika(res_xyz.getX());
-        }
+    //nasze xyz
+    public void xyz(int x, int y, int z){
+        System.out.println("xyz: " + x +  " " + y +  " " + z);
+        //TUTAJ WYWOŁANIE KLASY KINEMATYKA A POTEM POSZCZEGOLNYCH KĄTÓW
+        //Kinematyka res_xyz = kinematykaProsta(x,y,z);
+        //NP. r_wysiegnika(res_xyz.getX());
+    }
+    //nasze katy
+    public void ooo(int o1, int o2, int o3){
+        
+        System.out.println("ooo: " + o1 +  " " + o2 +  " " + o3);
+        //TUTAJ WYWOŁANIE KLASY KINEMATYKA A POTEM POSZCZEGOLNYCH KĄTÓW
+        //Kinematyka res_deg = kinematykaOdwrotna(o1, o2, o3);
+        //
+    
     }
     
-    public void ooo(int data, int which){
-        if (which == 1){
-            int o1 = data;
-        }else if(which == 2){
-            int o2 = data;
-        }else if(which == 3){
-            int o3 = data;
-        }else{
-            //TUTAJ WYWOŁANIE KLASY KINEMATYKA A POTEM POSZCZEGOLNYCH KĄTÓW
-            //Kinematyka res_deg = kinematykaOdwrotna(o1, o2, o3);
-            //NP. r_wysiegnika(res_xyz.getX());
-        }
-    }
+    
+    
     //ruch ramienia góra-dół (przesuniecie go o Wektor)
 //           public void r_ramienia(boolean kierunek){
 //           Transform3D trans3d = new Transform3D();
