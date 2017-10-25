@@ -1,6 +1,6 @@
 package robot;
 
-import javax.swing.*;
+    import javax.swing.*;
     import javax.vecmath.*;
     import com.sun.j3d.utils.behaviors.mouse.*;
     import com.sun.j3d.utils.geometry.*;
@@ -12,9 +12,9 @@ import javax.swing.*;
     import javax.vecmath.Point3d;
     import com.sun.j3d.utils.image.TextureLoader;
     import java.util.Enumeration;
-import java.util.concurrent.TimeUnit;
-import static robot.Kinematyka.kinematykaOdwrotna;
+    import java.util.concurrent.TimeUnit;
     
+    import static robot.Kinematyka.kinematykaOdwrotna;    
     import static robot.Kinematyka.kinematykaProsta;
 
 
