@@ -579,15 +579,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_OtworzActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String text1 = jTextField1.getText();
-        String text2 = jTextField2.getText();
-        String text3 = jTextField3.getText();
-        if(text1.equals("") && text2.equals("") && text3.equals("")){
-            r.xyz(4, 4);
-        }else{
-            r.ooo(4, 4);    
-        }
-        
+        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
@@ -595,21 +587,15 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField6ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        String text = jTextField1.getText();
-        int foo = Integer.parseInt(text);
-        r.ooo(foo, 1);
+        // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        String text = jTextField2.getText();
-        int foo2 = Integer.parseInt(text);
-        r.ooo(foo2, 2);
+        // TODO add your handling code here:
     }//GEN-LAST:event_jTextField3ActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        String text = jTextField3.getText();
-        int foo3 = Integer.parseInt(text);
-        r.ooo(foo3, 3);
+        // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
