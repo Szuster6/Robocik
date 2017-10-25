@@ -15,7 +15,6 @@ public class Menu extends javax.swing.JFrame {
    ArrayList lista = new ArrayList();
     /** Creates new form Gui */
     public Menu() {
-      
         initComponents();
         setResizable(false);
         r.setVisible(true);
@@ -579,51 +578,51 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_OtworzActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String text4 = jTextField4.getText();
+        String text5 = jTextField5.getText();
+        String text6 = jTextField6.getText();
         String text1 = jTextField1.getText();
         String text2 = jTextField2.getText();
         String text3 = jTextField3.getText();
-        if(text1.equals("") && text2.equals("") && text3.equals("")){
-            r.xyz(4, 4);
+        if(text1.isEmpty() && text2.isEmpty() && text3.isEmpty()){
+            System.out.println("podane wartosci: " + text4 +  " " + text5 +  " " + text6);
+            int foo4 = Integer.parseInt(text4);
+            int foo5 = Integer.parseInt(text5);
+            int foo6 = Integer.parseInt(text6);
+            r.ooo(foo4, foo5, foo6); 
         }else{
-            r.ooo(4, 4);    
+            System.out.println("podane wartosci: " + text1 +  " " + text2 +  " " + text3);
+            int foo1 = Integer.parseInt(text1);
+            int foo2 = Integer.parseInt(text2);
+            int foo3 = Integer.parseInt(text3);
+            r.xyz(foo1, foo2, foo3);  
+			
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
-        String text = jTextField6.getText();
-        int foo3 = Integer.parseInt(text);
-        r.xyz(foo3, 3);
+        
     }//GEN-LAST:event_jTextField6ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        String text = jTextField1.getText();
-        int foo = Integer.parseInt(text);
-        r.ooo(foo, 1);
+        
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        String text = jTextField2.getText();
-        int foo2 = Integer.parseInt(text);
-        r.ooo(foo2, 2);
+        
     }//GEN-LAST:event_jTextField3ActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        String text = jTextField3.getText();
-        int foo3 = Integer.parseInt(text);
-        r.ooo(foo3, 3);
+        
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
-        String text = jTextField5.getText();
-        int foo2 = Integer.parseInt(text);
-        r.xyz(foo2, 2);
+        
     }//GEN-LAST:event_jTextField5ActionPerformed
 
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
-        String text = jTextField4.getText();
-        int foo = Integer.parseInt(text);
-        r.xyz(foo, 1);
+        
     }//GEN-LAST:event_jTextField4ActionPerformed
   protected void delay(int sec){
         try {
