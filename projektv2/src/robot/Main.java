@@ -470,7 +470,9 @@ public class Main extends JFrame{
         System.out.println("xyz: " + x +  " " + y +  " " + z);
         //TUTAJ WYWOŁANIE KLASY KINEMATYKA A POTEM POSZCZEGOLNYCH KĄTÓW
         //Kinematyka res_xyz = kinematykaProsta(x,y,z);
-        //NP. r_wysiegnika(res_xyz.getX());
+        //r_korpusu(res_xyz.getX());
+        //r_ramienia(res_xyz.getY())
+        //r_wysiegnika(res_xyz.getZ());
     }
     //nasze katy
     public void ooo(int o1, int o2, int o3){
@@ -478,7 +480,9 @@ public class Main extends JFrame{
         System.out.println("ooo: " + o1 +  " " + o2 +  " " + o3);
         //TUTAJ WYWOŁANIE KLASY KINEMATYKA A POTEM POSZCZEGOLNYCH KĄTÓW
         //Kinematyka res_deg = kinematykaOdwrotna(o1, o2, o3);
-        //
+        //r_korpusu(res_deg.getX());
+        //r_ramienia(res_deg.getY())
+        //r_wysiegnika(res_deg.getZ());
     
     }
     
