@@ -583,7 +583,9 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
-        // TODO add your handling code here:
+        String text = jTextField6.getText();
+        int foo3 = Integer.parseInt(text);
+        r.xyz(foo3, 3);
     }//GEN-LAST:event_jTextField6ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -599,11 +601,15 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
-        // TODO add your handling code here:
+        String text = jTextField5.getText();
+        int foo2 = Integer.parseInt(text);
+        r.xyz(foo2, 2);
     }//GEN-LAST:event_jTextField5ActionPerformed
 
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
-        // TODO add your handling code here:
+        String text = jTextField4.getText();
+        int foo = Integer.parseInt(text);
+        r.xyz(foo, 1);
     }//GEN-LAST:event_jTextField4ActionPerformed
   protected void delay(int sec){
         try {
