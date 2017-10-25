@@ -465,20 +465,6 @@ public class Main extends JFrame{
           
                   }
     
-    //obrót podstawy kąt względem osi
-    public void xyz(int data, int which){
-        if (which == 1){
-            int x = data;
-        }else if(which == 2){
-            int y = data;
-        }else if(which == 3){
-            int z = data;
-        }else{
-            //TUTAJ WYWOŁANIE KLASY KINEMATYKA A POTEM POSZCZEGOLNYCH KĄTÓW
-            //Kinematyka res_xyz = kinematykaProsta(x,y,z);
-            //NP. r_wysiegnika(res_xyz.getX());
-        }
-    }
     //ruch ramienia góra-dół (przesuniecie go o Wektor)
 //           public void r_ramienia(boolean kierunek){
 //           Transform3D trans3d = new Transform3D();
