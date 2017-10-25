@@ -14,7 +14,6 @@ package robot;
     import com.sun.j3d.utils.image.TextureLoader;
     import java.util.Enumeration;
 
-
 public class Main extends JFrame{
     
     private BranchGroup scena;
@@ -476,6 +475,20 @@ public class Main extends JFrame{
         }else{
             //TUTAJ WYWOŁANIE KLASY KINEMATYKA A POTEM POSZCZEGOLNYCH KĄTÓW
             //Kinematyka res_xyz = kinematykaProsta(x,y,z);
+            //NP. r_wysiegnika(res_xyz.getX());
+        }
+    }
+    
+    public void ooo(int data, int which){
+        if (which == 1){
+            int o1 = data;
+        }else if(which == 2){
+            int o2 = data;
+        }else if(which == 3){
+            int o3 = data;
+        }else{
+            //TUTAJ WYWOŁANIE KLASY KINEMATYKA A POTEM POSZCZEGOLNYCH KĄTÓW
+            //Kinematyka res_deg = kinematykaOdwrotna(o1, o2, o3);
             //NP. r_wysiegnika(res_xyz.getX());
         }
     }
